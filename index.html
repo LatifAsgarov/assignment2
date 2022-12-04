@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,25 +10,57 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="index.js"></script>
 </head>
+
 <body>
-    <select name="options" id="input-choices">
-        <option value="city">city</option>
-        <option value="latLong">LatLong</option>
-        <option value="geolocation">Geolocation</option>
-    </select>
-    <input type="text" id="city-name" placeholder="Enter city name">
-    <input type="text" id="latitude" placeholder="Enter latitude value">
-    <input type="text" id="longitude" placeholder="Enter longitude value">
-    <button id="sender">Send Data</button>
-<br>
-    Temprature: <h1 id="temperature-text"></h1><br>
-   City name: <h1 id="cityTextElement"></h1><br>
-    Country name: <h1 id="countryName"></h1><br>
-   Feels like <h1 id="detailedInfo"></h1><br>
-    Weather condition<h1 id="weatherCondition"></h1>
-    Time <h1 id="time"></h1>
 
+    <div class="main-container">
+        <div class="nav-bar">
+            <select name="options" id="input-choices">
+                <option value="city">city</option>
+                <option value="latLong">LatLong</option>
+                <option value="geolocation">Geolocation</option>
+            </select>
+            <input type="text" id="city-name" placeholder="Enter city name">
+            <div class="latlong-div">
+                <input type="text" id="latitude" placeholder="Enter latitude value"><br>
+                <input type="text" id="longitude" placeholder="Enter longitude value">
+            </div>
 
-   
+        </div>
+
+        <div class="body-div">
+            <span class="span">Temprature: </span> <span id="temperature-text"></span><br>
+            <hr>
+            <span class="span"> City name: </span> <span id="cityTextElement"></span><br>
+            <hr>
+            <span class="span">Country name: </span> <span id="countryName"></span><br>
+            <hr>
+            <span class="span">Feels like: </span> <span id="detailedInfo"></span><br>
+            <hr>
+            <span class="span">Weather condition: </span> <span id="weatherCondition"></span><br>
+            <hr>
+            <span class="span">Time: </span><span id="time"></span><br>
+            <hr>
+            <span class="span">Detailed description: </span> <span id="Detailed-Info"></span><br>
+            <hr>
+            <span class="span"> Max Temprature: </span> <span id="maxTemp"></span><br>
+            <hr>
+            <span class="span">min Temprature: </span> <span id="minTemp"></span><br>
+            <hr>
+            <span class="span">Humidity: </span> <span id="hum"></span><br>
+            <hr>
+            <span class="span">Pressure: </span> <span id="press"></span><br>
+            <hr>
+            <span class="span">Wind Speed: </span> <span id="speed"></span><br>
+            <hr>
+            <span class="span">Wind deg: </span> <span id="degree"></span><br>
+            <hr>
+        </div>
+        <footer class="sender">
+            <button id="sender">Send Data</button>
+        </footer>
+    </div>
+
 </body>
+
 </html>

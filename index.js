@@ -9,6 +9,13 @@ const CountryName = document.getElementById("countryName")
 const detailedInformation = document.getElementById("detailedInfo")
 const Weathercondition = document.getElementById("weatherCondition")
 const time = document.getElementById("time")
+const detInfo = document.getElementById("Detailed-Info")
+const maxTemprature = document.getElementById("maxTemp")
+const minTemprature = document.getElementById("minTemp")
+const humidity = document.getElementById("hum")
+const pressure = document.getElementById("press")
+const Wspeed = document.getElementById("speed")
+const Wdeg = document.getElementById("degree")
 
 let geolocationLatitude
 let geolocationLongtitude
@@ -53,11 +60,24 @@ const getTime = (seconds) => {
   return timeString.split("T")[0] + " " + timeString.split("T")[1]
 }
 
+const degToCompass = (Wdeg) => {
+  var val = Math.floor((Wdeg / 22.5) + 0.5);
+  var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+  return arr[(val % 16)];
+}
+
 const setInformation = async (response) => {
   temperatureTextElement.innerText = response.data.main.temp
-  CityText.innerText = response.data.name
   detailedInformation.innerText = response.data.main.feels_like
-  // Weathercondition.innerText = response.weather.description
+  maxTemprature.innerText = response.data.main.temp_max
+  minTemprature.innerText = response.data.main.temp_min
+  humidity.innerText = response.data.main.humidity
+  pressure.innerText = response.data.main.pressure
+  Wspeed.innerText = response.data.wind.speed
+  Wdeg.innerText = await degToCompass(response.data.wind.deg)
+  CityText.innerText = response.data.name
+  Weathercondition.innerText = response.data.weather[0].main
+  detInfo.innerText = response.data.weather[0].description
   time.innerText = getTime(response.data.dt);
   CountryName.innerText = await getCountryFullName(response.data.sys.country)
 }
@@ -66,6 +86,7 @@ const getWeatherInfo = async () => {
   if (inputChoiceElement.value == "city") {
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${cityNameInput.value}&appid=f4d5930c35c97f6f23efa6ca85368169`)
     setInformation(response)
+    console.log(response);
   } else if (inputChoiceElement.value == "latLong") {
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitudeInput.value}&lon=${longitudeInput.value}&appid=f4d5930c35c97f6f23efa6ca85368169&units=metric`)
     setInformation(response)

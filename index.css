@@ -1,4 +1,67 @@
 #latitude, #longitude{
     display:none
 }
+body{
+    padding-top: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.main-container{
+    border: 1px solid black;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgb(255, 167, 167, 0.5);
+}
 
+.nav-bar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.body-div{
+    padding: 10px;
+}
+
+.span{
+    color: rgb(84, 113, 162);
+    font-weight: bold;
+}
+
+.temp-div{
+    text-align: center;
+    
+}
+
+#input-choices{
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgb(251, 133, 42);
+    color: white;
+}
+
+#city-name{
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+   
+}
+#sender{
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: blue;
+    color: white
+    
+}
+
+footer.sender{
+    margin-left: 680px;
+}
